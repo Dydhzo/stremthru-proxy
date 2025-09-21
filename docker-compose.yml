@@ -1,0 +1,10 @@
+services:
+  stremthru-proxy:
+    image: ghcr.io/dydhzo/stremthru-proxy:latest
+    ports:
+      - "8080:8080"
+    environment:
+      - STREMTHRU_BASE_URL=http://localhost:8080
+      - STREMTHRU_PROXY_AUTH=admin:your-password  # REQUIRED
+      - STREMTHRU_JWT_SECRET=change-this-to-a-very-long-random-string  # Generate: openssl rand -base64 32
+    restart: unless-stopped
